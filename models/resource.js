@@ -32,7 +32,7 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         onDelete: "CASCADE",
         onUpdate: "CASCADE",
-        type: Sequelize.INTEGER,
+        type: DataTypes.INTEGER,
         reference: {
           model: "users",
           key: "id",
@@ -40,34 +40,34 @@ module.exports = (sequelize, DataTypes) => {
       },
       title: {
         allowNull: false,
-        type: Sequelize.STRING,
+        type: DataTypes.STRING,
       },
       type: {
         allowNull: false,
-        type: Sequelize.STRING,
+        type: DataTypes.STRING,
       },
       feeling: {
         allowNull: false,
-        type: Sequelize.STRING,
+        type: DataTypes.STRING,
       },
       time_requirement: {
         allowNull: false,
-        type: Sequelize.STRING,
+        type: DataTypes.STRING,
       },
       preview_text: {
         allowNull: false,
-        type: Sequelize.STRING,
+        type: DataTypes.STRING,
       },
       content: {
         allowNull: false,
-        type: Sequelize.TEXT,
+        type: DataTypes.TEXT,
       },
       likes: {
         defaultValue: 0,
-        type: Sequelize.INTEGER,
+        type: DataTypes.INTEGER,
       },
       optional_link: {
-        type: Sequelize.STRING,
+        type: DataTypes.STRING,
       },
     },
     {

@@ -30,21 +30,21 @@ module.exports = (sequelize, DataTypes) => {
     {
       username: {
         allowNull: false,
-        type: Sequelize.STRING,
+        type: DataTypes.STRING,
       },
       email: {
         allowNull: false,
-        type: Sequelize.STRING,
+        type: DataTypes.STRING,
         validate: {
           isEmail: true,
         },
       },
       password_digest: {
         allowNull: false,
-        type: Sequelize.STRING,
+        type: DataTypes.STRING,
       },
       current_mood: {
-        type: Sequelize.STRING,
+        type: DataTypes.STRING,
       },
     },
     {
