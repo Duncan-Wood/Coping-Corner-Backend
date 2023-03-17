@@ -27,7 +27,7 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         onDelete: "CASCADE",
         onUpdate: "CASCADE",
-        type: Sequelize.INTEGER,
+        type: DataTypes.INTEGER,
         reference: {
           model: "users",
           key: "id",
@@ -37,14 +37,14 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         onDelete: "CASCADE",
         onUpdate: "CASCADE",
-        type: Sequelize.INTEGER,
+        type: DataTypes.INTEGER,
         reference: {
           model: "resources",
           key: "id",
         },
       },
       comment_text: {
-        type: Sequelize.TEXT,
+        type: DataTypes.TEXT,
         allowNull: false,
       }
     },
