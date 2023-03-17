@@ -8,6 +8,21 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
+      User.hasMany(models.Resource, {
+        foreignKey: 'user_id',
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE'
+      })
+      User.hasMany(models.Comment,{
+        foreignKey: 'user_id',
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE'
+      })
+      User.belongsToMany(models.Resource, {
+        as: 'favorite_list',
+        through: models.Favorite,
+        foreignKey: 'user_id'
+      })
       // define association here
     }
   }
