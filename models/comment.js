@@ -8,6 +8,16 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
+      Comment.belongsTo(models.User, {
+        foreignKey: 'user_id',
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE'
+      })
+      Comment.belongsTo(models.Resource, {
+        foreignKey: 'resource_id',
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE'
+      })
       // define association here
     }
   }
