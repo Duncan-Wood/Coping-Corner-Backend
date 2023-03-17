@@ -31,6 +31,7 @@ const Register = async (req, res) => {
     const user = await User.create({ email, password_digest, username })
     res.send(user)
   } catch (error) {
+  
     throw error
   }
 }

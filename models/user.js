@@ -1,5 +1,6 @@
 "use strict";
 const { Model } = require("sequelize");
+
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     /**
@@ -41,7 +42,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       password_digest: {
         allowNull: false,
-        type: DataTypes.STRING,
+        type: DataTypes.STRING
       },
       current_mood: {
         type: DataTypes.STRING,
