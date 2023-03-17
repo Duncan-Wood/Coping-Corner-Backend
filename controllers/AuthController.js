@@ -4,11 +4,15 @@ const middleware = require('../middleware')
 const Login = async (req, res) => {
   try {
     const user = await User.findOne({
-      where: { email: req.body.email },
+      //changed to have username login instead of req.body.email
+      where: { username: req.body.username },
       raw: true
     })
     if (
-      user &&
+      //if user exists and our official password_digest (in user info) matches our inputted one, then
+      //assign the id and email to the payload, then sign payload with app secret
+      //and create a token with it
+      user && 
       (await middleware.comparePassword(user.password_digest, req.body.password))
     ) {
       let payload = {
@@ -18,7 +22,7 @@ const Login = async (req, res) => {
       let token = middleware.createToken(payload)
       return res.send({ user: payload, token })
     }
-    res.status(401).send({ status: 'Error', msg: 'Unauthorized' })
+    res.status(401).send({ status: 'Error', msg: 'Incorrect Username or Password' })
   } catch (error) {
     throw error
   }
@@ -26,10 +30,12 @@ const Login = async (req, res) => {
 
 const Register = async (req, res) => {
   try {
+    //this label 'password' must be the same as the key for password value for entered
     const { email, password, username } = req.body
     let password_digest = await middleware.hashPassword(password)
     const user = await User.create({ email, password_digest, username })
-    res.send(user)
+  
+    res.send(user) 
   } catch (error) {
   
     throw error
