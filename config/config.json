@@ -1,0 +1,20 @@
+{
+  "development": {
+    "database": "coping_corner_development",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "define": {
+      "underscored": true
+    }
+  },
+  "test": {
+    "database": "coping_corner_test",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "production": {
+    "database": "coping_corner_production",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}
