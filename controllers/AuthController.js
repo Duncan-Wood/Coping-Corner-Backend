@@ -30,11 +30,11 @@ const Login = async (req, res) => {
 
 const Register = async (req, res) => {
   try {
-    //this label 'password' must be the same as the key for password value for entered
+    //this label 'password' must be the same as the key for password value in form/ entered json object
     const { email, password, username } = req.body
     let password_digest = await middleware.hashPassword(password)
     const user = await User.create({ email, password_digest, username })
-  
+  //creating a user
     res.send(user) 
   } catch (error) {
   
