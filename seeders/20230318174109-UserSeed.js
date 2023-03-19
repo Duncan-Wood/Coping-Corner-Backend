@@ -5,10 +5,16 @@ module.exports = {
   async up (queryInterface, Sequelize) {
     await queryInterface.bulkInsert('users',[
       {
+        username:"ccadmin",
+        email:"fake@copingcorner.com",
+        password_digest:"keepcalmcarryon",
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
         username: "ykallday",
         email: "yael@yael.com",
         password_digest: "iamsotired123",
-        current_mood: "overwhelmed",
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -16,7 +22,6 @@ module.exports = {
         username: "elliottv26",
         email: "elliott@elliott.com",
         password_digest: "fake123",
-        current_mood: "tired",
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -24,7 +29,6 @@ module.exports = {
         username: "qlandry",
         email: "quinn@quinn.com",
         password_digest: "swol123",
-        current_mood: "bored",
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -32,7 +36,6 @@ module.exports = {
         username: "gamer",
         email: "duncan@duncan.com",
         password_digest: "kitty",
-        current_mood: "in pain",
         createdAt: new Date(),
         updatedAt: new Date()
       }
