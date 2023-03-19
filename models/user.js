@@ -49,9 +49,6 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING
       },
 
-      current_mood: {
-        type: DataTypes.STRING,
-      },
     },
     {
       sequelize,
