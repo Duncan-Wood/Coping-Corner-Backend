@@ -9,6 +9,19 @@ const GetResources = async (req, res) => {
   }
 }
 
+// const GetResourcesByFeeling = async (req, res) => {
+//   try {
+//     let searchMood = "feeling_"+req.params.mood
+//     const resources = await Resource.findAll(
+//       { where:  Resource.searchMood}
+//     )
+//     console.log(searchMood)
+//     res.send(resources)
+//   } catch (error) {
+//     throw error
+//   }
+// }
+
 const CreateResource = async (req, res) => {
   try {
     const resource = await Resource.create({ ...req.body })
@@ -41,6 +54,7 @@ const DeleteResource = async (req, res) => {
 
 module.exports = {
   GetResources,
+  // GetResourcesByFeeling,
   CreateResource,
   UpdateResource,
   DeleteResource
