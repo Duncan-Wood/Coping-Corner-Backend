@@ -1,8 +1,11 @@
 const { Resource } = require('../models')
+const { User } = require ('../models')
 
 const GetResources = async (req, res) => {
   try {
-    const resources = await Resource.findAll()
+    const resources = await Resource.findAll(
+      {include: [{ model: User}]}
+    )
     res.send(resources)
   } catch (error) {
     throw error
