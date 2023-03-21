@@ -17,8 +17,21 @@ module.exports = {
         reference: {
           model: "users",
           key: "id"
+        }},
+        title: {
+          allowNull: false,
+          type: Sequelize.STRING
         },
-      
+        type: {
+          allowNull: false,
+          type: Sequelize.ARRAY (Sequelize.STRING),
+          defaultValue: [],
+        },
+        feeling: {
+          allowNull: false,
+          type: Sequelize.ARRAY (Sequelize.STRING),
+          defaultValue: [],
+        },
       time_requirement: {
         allowNull: false,
         type: Sequelize.STRING
@@ -49,9 +62,8 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       }
-    }});
+    });
   },
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('resources');
-  }
-};
+  }}

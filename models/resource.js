@@ -23,19 +23,6 @@ module.exports = (sequelize, DataTypes) => {
         through: models.Favorite,
         foreignKey: 'resource_id'
       })
-
-      Resource.belongsToMany(models.Feeling, {
-        as:"feeling_list",
-        through: models.Resource_Feeling,
-        foreignKey: 'resource_id'
-      })
-
-      Resource.belongsToMany(models.Type, {
-        as:"type_list",
-        through: models.Resource_Type,
-        foreignKey: 'resource_id'
-      })
-      // define association here
     }
   }
   Resource.init(
@@ -54,7 +41,16 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         type: DataTypes.STRING,
       },
-     
+      type: {
+        allowNull: false,
+        type: DataTypes.ARRAY (DataTypes.STRING),
+        defaultValue: [],
+      },
+      feeling: {
+        allowNull: false,
+        type: DataTypes.ARRAY (DataTypes.STRING),
+        defaultValue: [],
+      },
       time_requirement: {
         allowNull: false,
         type: DataTypes.STRING,
