@@ -1,5 +1,6 @@
 const { Resource } = require('../models')
 const { User } = require ('../models')
+const { Favorite } = require ('../models')
 
 const GetResources = async (req, res) => {
   try {
@@ -51,6 +52,14 @@ const DeleteResource = async (req, res) => {
     await Resource.destroy({ where: { id: req.params.resource_id } })
     res.send({ msg: 'Resource Deleted', payload: req.params.resource_id, status: 'Ok' })
   } catch (error) {
+    throw error
+  }
+}
+
+const SaveResource = async (req, res) => {
+  try {
+    const favorite = await Favorite.create({user_id, resource_id})
+  } catch (error){
     throw error
   }
 }
