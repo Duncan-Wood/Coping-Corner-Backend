@@ -10,12 +10,32 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
+      Favorite.belongsTo(models.User, { foreignKey: 'user_id' })
+      Favorite.belongsTo(models.Resource, { foreignKey: 'resource_id' })
       
     }
   }
   Favorite.init({
+    userId: {
+      onDelete: "CASCADE",
+      onUpdate: "CASCADE",
+      type: DataTypes.INTEGER,
+      reference: {
+        model: "users",
+        key: "id",
+      },
+    },
+    ResourceId: {
+      onDelete: "CASCADE",
+      onUpdate: "CASCADE",
+      type: DataTypes.INTEGER,
+      reference: {
+        model: "resources",
+        key: "id",
+      },
+      
+    },
     user_id: {
-      allowNull: false,
       onDelete: "CASCADE",
       onUpdate: "CASCADE",
       type: DataTypes.INTEGER,
@@ -25,7 +45,6 @@ module.exports = (sequelize, DataTypes) => {
       },
     },
     resource_id: {
-      allowNull: false,
       onDelete: "CASCADE",
       onUpdate: "CASCADE",
       type: DataTypes.INTEGER,
@@ -41,3 +60,4 @@ module.exports = (sequelize, DataTypes) => {
   });
   return Favorite;
 };
+

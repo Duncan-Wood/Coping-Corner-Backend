@@ -23,6 +23,9 @@ module.exports = (sequelize, DataTypes) => {
         through: models.Favorite,
         foreignKey: 'resource_id'
       })
+
+      Resource.hasMany(models.Favorite)
+
     }
   }
   Resource.init(
