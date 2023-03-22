@@ -9,8 +9,25 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      userId: {
+        onDelete: "CASCADE",
+        onUpdate: "CASCADE",
+        type: Sequelize.INTEGER,
+        reference: {
+          model: "users",
+          key: "id",
+        },
+      },
+      ResourceId: {
+        onDelete: "CASCADE",
+        onUpdate: "CASCADE",
+        type: Sequelize.INTEGER,
+        reference: {
+          model: "resources",
+          key: "id",
+        },
+      },
       user_id: {
-        allowNull: false,
         onDelete: "CASCADE",
         onUpdate: "CASCADE",
         type: Sequelize.INTEGER,
@@ -20,7 +37,6 @@ module.exports = {
         },
       },
       resource_id: {
-        allowNull: false,
         onDelete: "CASCADE",
         onUpdate: "CASCADE",
         type: Sequelize.INTEGER,

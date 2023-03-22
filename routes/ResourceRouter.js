@@ -8,4 +8,7 @@ router.post('/', middleware.stripToken, middleware.verifyToken, controller.Creat
 router.put('/:resource_id', middleware.stripToken, middleware.verifyToken, controller.UpdateResource)
 router.delete('/:resource_id', middleware.stripToken, middleware.verifyToken, controller.DeleteResource)
 
+router.get('/:user_id/favorites', middleware.stripToken, middleware.verifyToken, controller.GetUserFavorites)
+router.post('/addfavorite', middleware.stripToken, middleware.verifyToken, controller.SaveResource)
+
 module.exports = router

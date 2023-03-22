@@ -24,6 +24,8 @@ module.exports = (sequelize, DataTypes) => {
         through: models.Favorite,
         foreignKey: 'user_id'
       })
+      User.hasMany(models.Favorite)
+
       // define association here
     }
   }
