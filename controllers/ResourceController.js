@@ -13,6 +13,18 @@ const GetResources = async (req, res) => {
   }
 }
 
+const GetSelectedResource = async (req, res) => {
+  try {
+    const resourceId = req.params.resource_id
+    const resource = await Resource.findByPk(resourceId,
+      {include: [{ model: User}]}
+    )
+    res.send(resource)
+  } catch (error) {
+    throw error
+  }
+}
+
 // const GetResourcesByFeeling = async (req, res) => {
 //   try {
 //     let searchMood = "feeling_"+req.params.mood
@@ -96,6 +108,7 @@ const GetUserFavorites = async (req, res) => {
 
 module.exports = {
   GetResources,
+  GetSelectedResource,
   // GetResourcesByFeeling,
   CreateResource,
   UpdateResource,
