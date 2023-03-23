@@ -1,6 +1,6 @@
 # Welcome to Coping Corner!
 
-![Coping Corner Screenshot](coping-frontend/src/assets/homepagescreenshot.png)
+![Coping Corner Screenshot](assets/homepagescreenshot.png)
 
 ## Take a look
 
