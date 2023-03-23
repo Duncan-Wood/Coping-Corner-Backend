@@ -13,6 +13,25 @@ const GetUserFavorites = async (req, res) => {
     }
   }
 
+
+  const GetUserFavoriteMatch = async (req, res) => {
+    try{
+      const existingFavorite = await Favorite.findOne({
+        where: {
+          user_id: req.params.user_id,
+          resource_id: req.params.resource_id
+        }
+      })
+      if (existingFavorite){
+      res.send({msg: 'Resource has already been save to favorites'})
+      } else {
+        res.send(null)
+      }
+    }catch(error){
+      throw error
+    }
+  }
+
   const SaveResource = async (req, res) => {
     try {
       const existingFavorite = await Favorite.findOne({
@@ -51,5 +70,6 @@ const GetUserFavorites = async (req, res) => {
 module.exports = {
   SaveResource,
   GetUserFavorites,
+  GetUserFavoriteMatch,
   DeleteFavorite
 }
