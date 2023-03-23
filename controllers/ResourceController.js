@@ -68,44 +68,22 @@ const DeleteResource = async (req, res) => {
   }
 }
 
-// const SaveResource = async (req, res) => {
-//   const { user_id, resource_id } = req.body 
-//   try {
-//     const favorite = await Favorite.create({user_id, resource_id})
-//     res.send(favorite)
-    
-//   } catch (error){
-//     throw error
-//   }
-// }
+const AddLike = async (req, res) => {
+  try{
+    const resourceId = req.params.resource_id
+    const resource = await Resource.findByPk(resourceId)
+    resource.likes ++
+    await resource.save()
+    res.send({msg: 'Resource Liked!'})
 
-// const GetUserFavorites = async (req, res) => {
-//   try {
-//     const user_id = req.params.user_id;
-//     const favorites = await Favorite.findAll({
-//       where: { user_id: user_id },
-//       include: [
-//         { model: Resource },
-//         { model: User },
-//       ],
-//     });
-//     res.send(favorites);
-//   } catch (error) {
-//     throw error;
-//   }
-// }
+  } catch(error){
+    throw error
+  }
+
+}
 
 
-// const GetUserFavorites = async (req, res) => {
-//   try {
-//     const favorite = await Favorite.findAll(
-//       { where: { user_id: req.params.user_id }, returning: true }
-//     )
-//     res.send(favorite)
-//   } catch (error) {
-//     throw error
-//   }
-// }
+
 
 module.exports = {
   GetResources,
@@ -113,6 +91,5 @@ module.exports = {
   CreateResource,
   UpdateResource,
   DeleteResource,
-
-
+  AddLike
 }
