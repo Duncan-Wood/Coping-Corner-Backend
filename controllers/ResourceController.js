@@ -68,15 +68,16 @@ const DeleteResource = async (req, res) => {
   }
 }
 
-const SaveResource = async (req, res) => {
-  const { user_id, resource_id } = req.body 
-  try {
-    const favorite = await Favorite.create({user_id, resource_id})
-    res.send({msg:'Resource favorited!'})
-  } catch (error){
-    throw error
-  }
-}
+// const SaveResource = async (req, res) => {
+//   const { user_id, resource_id } = req.body 
+//   try {
+//     const favorite = await Favorite.create({user_id, resource_id})
+//     res.send(favorite)
+    
+//   } catch (error){
+//     throw error
+//   }
+// }
 
 // const GetUserFavorites = async (req, res) => {
 //   try {
@@ -95,25 +96,23 @@ const SaveResource = async (req, res) => {
 // }
 
 
-const GetUserFavorites = async (req, res) => {
-  try {
-    const favorite = await Favorite.findAll(
-      { where: { userId: req.params.user_id }, returning: true }
-    )
-    res.send(favorite)
-  } catch (error) {
-    throw error
-  }
-}
+// const GetUserFavorites = async (req, res) => {
+//   try {
+//     const favorite = await Favorite.findAll(
+//       { where: { user_id: req.params.user_id }, returning: true }
+//     )
+//     res.send(favorite)
+//   } catch (error) {
+//     throw error
+//   }
+// }
 
 module.exports = {
   GetResources,
   GetSelectedResource,
-  // GetResourcesByFeeling,
   CreateResource,
   UpdateResource,
   DeleteResource,
-  SaveResource,
-  GetUserFavorites
+
 
 }
