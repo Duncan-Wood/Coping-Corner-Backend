@@ -1,4 +1,4 @@
-const { Resource } = require('../models')
+// const { Resource } = require('../models')
 // const { User } = require ('../models')
 const { Favorite } = require ('../models')
 

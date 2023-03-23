@@ -209,7 +209,21 @@ module.exports = {
         preview_text: "Mmmmm...",
         content: "'Pick a smell you find soothing. Take slow breaths, and notice what you like about the scent you chose. Options: essential oils, cinnamon or vanilla from your kitchen, your hand soap, a candle'",
         likes: 11,
-        optional_image: "https://images.pexels.com/photos/4050338/pexels-photo-4050338.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        optional_image: "https://images.pexels.com/photos/4041391/pexels-photo-4041391.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        optional_link: "https://www.vanessatrine.com/resources",
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        user_id: 2,
+        title: "Breathe in a square",
+        type: ["grounding", "meditation","mind-body",],
+        feeling: ['overwhelmed', 'disconnected', 'depressed', 'blah', 'frustrated', 'fine', 'bad','totally distraught', 'afraid', 'self doubt', 'very anxious', 'fine'],
+        time_requirement: "5",
+        preview_text: "Can you visualize it?",
+        content: "'Repeat these steps as you follow the sides of the square. Inhale for four seconds. Hold your breath for four seconds. Exhale for four seconds. Hold your breath (at the bottom of your exhale) for four seconds. You can also use a window, a door frame, or anything else with four sides near you as a guide for this technique.'",
+        likes: 5,
+        optional_image: "https://images.pexels.com/photos/4041391/pexels-photo-4041391.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
         optional_link: "https://www.vanessatrine.com/resources",
         createdAt: new Date(),
         updatedAt: new Date()
