@@ -1,11 +1,11 @@
-const { Resource } = require('../models')
+// const { Resource } = require('../models')
 // const { User } = require ('../models')
 const { Favorite } = require ('../models')
 
 const GetUserFavorites = async (req, res) => {
     try {
       const favorite = await Favorite.findAll(
-        { where: { user_id: req.params.user_id }, include: [{ model: Resource}], returning: true }
+        { where: { user_id: req.params.user_id }, returning: true }
       )
       res.send(favorite)
     } catch (error) {
