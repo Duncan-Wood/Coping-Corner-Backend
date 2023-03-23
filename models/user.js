@@ -21,10 +21,9 @@ module.exports = (sequelize, DataTypes) => {
       })
       User.belongsToMany(models.Resource, {
         as: 'favorite_list',
-        through: models.Favorite,
+        through:  models.Favorite,
         foreignKey: 'user_id'
       })
-      User.hasMany(models.Favorite)
 
       // define association here
     }

@@ -16,25 +16,6 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Favorite.init({
-    userId: {
-      onDelete: "CASCADE",
-      onUpdate: "CASCADE",
-      type: DataTypes.INTEGER,
-      reference: {
-        model: "users",
-        key: "id",
-      },
-    },
-    ResourceId: {
-      onDelete: "CASCADE",
-      onUpdate: "CASCADE",
-      type: DataTypes.INTEGER,
-      reference: {
-        model: "resources",
-        key: "id",
-      },
-      
-    },
     user_id: {
       onDelete: "CASCADE",
       onUpdate: "CASCADE",
@@ -52,7 +33,26 @@ module.exports = (sequelize, DataTypes) => {
         model: "resources",
         key: "id",
       },
+      
     },
+    // user_id: {
+    //   onDelete: "CASCADE",
+    //   onUpdate: "CASCADE",
+    //   type: DataTypes.INTEGER,
+    //   reference: {
+    //     model: "users",
+    //     key: "id",
+    //   },
+    // },
+    // resource_id: {
+    //   onDelete: "CASCADE",
+    //   onUpdate: "CASCADE",
+    //   type: DataTypes.INTEGER,
+    //   reference: {
+    //     model: "resources",
+    //     key: "id",
+    //   },
+    // },
   }, {
     sequelize,
     modelName: 'Favorite',
