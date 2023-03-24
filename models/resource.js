@@ -2,29 +2,22 @@
 const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class Resource extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
     static associate(models) {
       Resource.belongsTo(models.User, {
-        foreignKey: 'user_id',
-        onDelete: 'CASCADE',
-        onUpdate: 'CASCADE'
-      })
+        foreignKey: "user_id",
+        onDelete: "CASCADE",
+        onUpdate: "CASCADE",
+      });
       Resource.hasMany(models.Comment, {
-        foreignKey: 'resource_id',
-        onDelete: 'CASCADE',
-        onUpdate: 'CASCADE'
-      })
+        foreignKey: "resource_id",
+        onDelete: "CASCADE",
+        onUpdate: "CASCADE",
+      });
       Resource.belongsToMany(models.User, {
-        as: 'favorite_item',
+        as: "favorite_item",
         through: models.Favorite,
-        foreignKey: 'resource_id'
-      })
-
-
+        foreignKey: "resource_id",
+      });
     }
   }
   Resource.init(
@@ -45,12 +38,12 @@ module.exports = (sequelize, DataTypes) => {
       },
       type: {
         allowNull: false,
-        type: DataTypes.ARRAY (DataTypes.STRING),
+        type: DataTypes.ARRAY(DataTypes.STRING),
         defaultValue: [],
       },
       feeling: {
         allowNull: false,
-        type: DataTypes.ARRAY (DataTypes.STRING),
+        type: DataTypes.ARRAY(DataTypes.STRING),
         defaultValue: [],
       },
       time_requirement: {
